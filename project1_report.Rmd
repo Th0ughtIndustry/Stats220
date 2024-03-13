@@ -1,0 +1,101 @@
+---
+title: "Creating images with R"
+subtitle: "with a little bit of magick"
+author: "Benjamin Lakeman"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo=TRUE, message=FALSE, warning=FALSE, error=FALSE)
+```
+
+```{css}
+/* Change the background color of the entire page */
+body {
+  background-color: #f0f0f0;
+}
+
+/* Change the font size and family of the headings */
+h1, h2, h3, h4, h5, h6 {
+  font-family: Arial, sans-serif;
+  font-size: 24px;
+}
+
+/* Add a border to all images */
+img {
+  border: 2px solid #333;
+  border-radius: 5px;
+}
+```
+
+## Project requirements
+![animated Meme](C:/Users/toxic/Desktop/stats220\Project 1\capture.png)
+I have set up a basic github repo and included all the relevant files for this project. As you can see this project was created using R studio's project style work space. for quick and dirty programming I created seperate r files to allow me to quickly change and edit the images/gifs beofer combining the code in the mark down file
+
+## My meme
+![Inspo Meme](https://i.ytimg.com/vi/if-2M3K1tqk/maxresdefault.jpg)
+```{r meme-code, eval=TRUE}
+library(magick)
+
+# Read the meme image
+meme <- image_read("https://i.etsystatic.com/7545759/r/il/75101a/2874628173/il_fullxfull.2874628173_tlke.jpg")
+
+# Apply background color, border, annotation, and scale to the meme image
+meme <- image_background(meme, "blue", flatten = TRUE) %>%
+  image_border("red", "10x10") %>%
+  image_annotate("Stonks", gravity = "southeast", size = 500, color = "white") %>%
+  image_scale("300")
+
+# Create a template with dimensions matching the meme image
+template <- image_blank(width = image_info(meme)$width, height = image_info(meme)$height)
+
+# Combine the template and meme images vertically
+img <- image_append(c(template, meme))
+
+# Write the combined image to a file
+image_write(img, "My_meme.png")
+img
+```
+![animated Meme](C:/Users/toxic/Desktop/stats220\Project 1\my_animation.gif)
+
+```{r animation-code, eval=FALSE}
+library(magick)
+
+template <- image_blank(width = "700",height = "700")
+meme <- image_read("https://i.etsystatic.com/7545759/r/il/75101a/2874628173/il_fullxfull.2874628173_tlke.jpg")
+#setup
+meme <- image_background(meme,"white", flatten = TRUE) %>%
+  image_border("red", "10x10") %>%
+  image_annotate("Stonks", gravity = "southeast",size = 500, color = "white") %>%
+  image_scale("300")
+
+#frame creations
+meme1 <- image_background(meme,"blue", flatten = TRUE) %>%
+  image_rotate(45) %>%
+  image_scale("400")
+meme2 <- image_background(meme1,"blue", flatten = TRUE) %>%
+  image_rotate(45) %>%
+  image_scale("500")
+meme3 <- image_background(meme2,"blue", flatten = TRUE) %>%
+  image_rotate(45) %>%
+  image_scale("600")
+meme4 <- image_background(meme3,"blue", flatten = TRUE) %>%
+  image_rotate(45)
+meme5 <- image_background(meme4,"blue", flatten = TRUE) %>%
+  image_rotate(45)
+meme6 <- image_background(meme5,"blue", flatten = TRUE) %>%
+  image_rotate(45)
+meme7 <- image_background(meme6,"blue", flatten = TRUE) %>%
+  image_rotate(45)
+meme8 <- image_background(meme7,"blue", flatten = TRUE) %>%
+  image_rotate(45)
+img <- c(template, meme, meme1,meme2,meme3,meme4,meme5,meme6,meme7,meme8)
+animation <- image_animate(img,5)
+image_write(animation, "my_animation.gif")
+```
+
+## Creativity
+  
+
+## Learning reflection
+

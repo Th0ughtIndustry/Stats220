@@ -1,0 +1,46 @@
+---
+title: "Report"
+subtitle: "with a little bit of magick"
+output: html_document
+date: "2023-03-13"
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo=TRUE, message=FALSE, warning=FALSE, error=FALSE)
+```
+
+
+```{css}
+/* Change the background color of the entire page */
+body {
+  background-color: #f0f0f0;
+}
+
+/* Change the font size and family of the headings */
+h1, h2, h3, h4, h5, h6 {
+  font-family: Arial, sans-serif;
+  font-size: 24px;
+}
+
+/* Add a border to all images */
+img {
+  border: 2px solid #333;
+  border-radius: 5px;
+}
+```
+
+## Project requirements
+
+In terms of meeting the requirements for this assignment I belivie have included and/or used all the required image and gif functions. Along with the code based requirements, my meme is actually a meme and my github set up is to the standard required. I think that my project contains creativity as it creativitly bad. The animation is literally thrown away and the meme is at least stats related (somewhat). I think creativity is hard to be marked on so at least it is unique :) but I did use additional functions that went a little bit further then required for some parts of the assignment. While the animation sucks I kinda like it in a weird way
+
+Here is my folder ss: 
+v![My meme](C:\Users\toxic\Desktop\stats220\Capture.PNG)
+<br/>
+Here is my Repo: https://github.com/Th0ughtIndustry/stats220
+<br/>
+Here is my Page: https://th0ughtindustry.github.io/stats220/
+
+## Learning reflections
+
+In terms of an important idea that i think I used well would be overall markdown use. I think that using mark down is something that has grown on me over the last few months and now I actually enjoy trying to use it to it's full potential.
+I'm looking forward to using this skill to make my repos, assignments and future projects to look as pretty and clean as possible. capabilities think in hind sight my two html pages (this and index) could have been completed to a bit of a higher standard, and made to be a bit more professional, and further use R's markdown to it's full capabilities.
